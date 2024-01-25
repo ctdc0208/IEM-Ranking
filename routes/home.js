@@ -7,9 +7,9 @@ const iem_ranking_controller = require("../controllers/rankingController")
 router.get("/", iem_ranking_controller.index);
 
 
-router.get("/author/create", iem_ranking_controller.iemranking_create_get);
+router.get("/create", iem_ranking_controller.iemranking_create_get);
 
-router.post("/author/create", iem_ranking_controller.iemranking_create_post);
+router.post("/create", iem_ranking_controller.iemranking_create_post);
 
 router.get("/author/:id/delete", iem_ranking_controller.iemranking_delete_get);
 

@@ -3,8 +3,11 @@
     "",
     "\\controllers",
     "\\models",
-    "\\routes"
+    "\\public",
+    "\\public\\stylesheets",
+    "\\routes",
+    "\\views"
   ],
-  "SelectedNode": "\\app.js",
+  "SelectedNode": "\\views\\index.pug",
   "PreviewInSolutionExplorer": false
 }
