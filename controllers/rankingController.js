@@ -2,7 +2,32 @@ const Ranking = require("../models/IEMRanking")
 const asyncHandler = require("express-async-handler")
 
 exports.index = asyncHandler(async (req, res, next) => {
-	res.send("NOT IMPLEMENTED: Site Home Page");
+	const [
+		rank,
+		value_rating,
+		model,
+		price,
+		signature,
+		comments,
+		tone_grade,
+		technical_grade,
+		setup,
+	] = await Promise.all([
+		Ranking.countDocuments({}).exec(),
+	]);
+
+	res.render("index", {
+		title: "IEM Ranking",
+		rank: rank,
+		value_rating: value_rating,
+		model: model,
+		price: price,
+		signature: signature,
+		comments: comments,
+		tone_grade: tone_grade,
+		technical_grade: technical_grade,
+		setup: setup,
+	})
 });
 
 // Display list of all IEM-Ranking.

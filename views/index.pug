@@ -2,4 +2,9 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  p Welcome to #{title}, a basic Express Website showcasing a IEM Ranking Data's
+
+  p The ranking has the following records:
+
+  ul 
+    li #[strong Rank:] !{rank}
