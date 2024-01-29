@@ -2,17 +2,42 @@ extends layout
 
 block content
 
-    h1 = title
+    h1=title
 
     form(method='POST')
         div.from-group
-            label(for='model') Model;
+            label(for='model') Model: 
             input#model.form-control(type='text',
             placeholder='IEM Model' name='model' required value=(undefined===iemranking ? '' : iemranking.model) )
-            label(for='rank') Rank;
+            label(for='rank') Rank: 
             input#model.form-control(type='text',
             placeholder='Ranking' name='rank' required value=(undefined===iemranking ? '' : iemranking.rank) )
-            button.btn.btn-primary(type='submit') Submit
+        div.from-group
+            label(for='value_rating') Value Rating:
+            input#model.form-control(type='text',
+            placeholder='Value Rating' name='value_rating' required value=(undefined===iemranking ? '' : iemranking.value_rating) )
+            label(for='price') Price:
+            input#model.form-control(type='text',
+            placeholder='Price' name='price' required value=(undefined===iemranking ? '' : iemranking.price) )
+        div.from-group
+            label(for='tone_grade') Sound Signature: 
+            input#model.form-control(type='text',
+            placeholder='Sound Signature' name='signature' required value=(undefined===iemranking ? '' : iemranking.signature) )
+            label(for='tone_grade') Tone Grade: 
+            input#model.form-control(type='text',
+            placeholder='Tone Grade' name='tone_grade' required value=(undefined===iemranking ? '' : iemranking.tone_grade) )
+        div.from-group
+            label(for='comments') Comments: 
+            input#model.form-control(type='text',
+            placeholder='Comments' name='comments' required value=(undefined===iemranking ? '' : iemranking.comments) )
+        div.from-group
+            label(for='technical_grade') Technical Grade: 
+            input#model.form-control(type='text',
+            placeholder='Technical Grade' name='technical_grade' required value=(undefined===iemranking ? '' : iemranking.technical_grade) )
+            label(for='setup') Setup: 
+            input#model.form-control(type='text',
+            placeholder='Setup' name='setup' required value=(undefined===iemranking ? '' : iemranking.setup) )
+        button.btn.btn-primary(type='submit') Submit
 
         if errors 
             ul
