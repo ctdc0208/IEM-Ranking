@@ -1,43 +1,54 @@
-extends layout
+﻿extends layout
 
 block content
 
-    h1=title
+    h1(class='center')=title
 
-    form(method='POST')
+    form(class='display-column form-container')(method='POST')
         div.from-group
             label(for='model') Model: 
             input#model.form-control(type='text',
             placeholder='IEM Model' name='model' required value=(undefined===iemranking ? '' : iemranking.model) )
+        div.from-group
             label(for='rank') Rank: 
-            input#model.form-control(type='text',
-            placeholder='Ranking' name='rank' required value=(undefined===iemranking ? '' : iemranking.rank) )
+            select#rank.form-control(name='rank')
+                each val in ['S+', 'S', 'S-','A+', 'A', 'A-','B+', 'B', 'B-','C+', 'C', 'C-']
+                    option(value= val)= val
         div.from-group
             label(for='value_rating') Value Rating:
-            input#model.form-control(type='text',
-            placeholder='Value Rating' name='value_rating' required value=(undefined===iemranking ? '' : iemranking.value_rating) )
+            select#value_rating.form-control(name='value_rating')
+                each val in ['★★★', '★★', '★']
+                    option(value= val)= val
+        div.from-group
             label(for='price') Price:
             input#model.form-control(type='text',
-            placeholder='Price' name='price' required value=(undefined===iemranking ? '' : iemranking.price) )
+            placeholder='Price in USD' name='price' required value=(undefined===iemranking ? '' : iemranking.price) )
         div.from-group
-            label(for='tone_grade') Sound Signature: 
-            input#model.form-control(type='text',
-            placeholder='Sound Signature' name='signature' required value=(undefined===iemranking ? '' : iemranking.signature) )
-            label(for='tone_grade') Tone Grade: 
-            input#model.form-control(type='text',
-            placeholder='Tone Grade' name='tone_grade' required value=(undefined===iemranking ? '' : iemranking.tone_grade) )
+            label(for='signature') Sound Signature: 
+            select#signature.form-control(name='signature')
+                each val in ['U-Shaped', 'Mild V-Shape', 'S-','A+', 'A', 'A-','B+', 'B', 'B-','C+', 'C', 'C-']
+                    option(value= val)= val
         div.from-group
             label(for='comments') Comments: 
-            input#model.form-control(type='text',
-            placeholder='Comments' name='comments' required value=(undefined===iemranking ? '' : iemranking.comments) )
+            textarea#model.form-control(type='text', 
+            placeholder='Comments' name='comments' rows='5' cols='53.5' required value=(undefined===iemranking ? '' : iemranking.comments) )
+        div.from-group
+            label(for='tone_grade') Tone Grade: 
+            select#tone_grade.form-control(name='tone_grade')
+                each val in ['S+', 'S', 'S-','A+', 'A', 'A-','B+', 'B', 'B-','C+', 'C', 'C-']
+                    option(value= val)= val
         div.from-group
             label(for='technical_grade') Technical Grade: 
-            input#model.form-control(type='text',
-            placeholder='Technical Grade' name='technical_grade' required value=(undefined===iemranking ? '' : iemranking.technical_grade) )
+            select#technical_grade.form-control(name='technical_grade')
+                each val in ['S+', 'S', 'S-','A+', 'A', 'A-','B+', 'B', 'B-','C+', 'C', 'C-']
+                    option(value= val)= val
+        div.from-group
             label(for='setup') Setup: 
-            input#model.form-control(type='text',
-            placeholder='Setup' name='setup' required value=(undefined===iemranking ? '' : iemranking.setup) )
-        button.btn.btn-primary(type='submit') Submit
+            select#setup.form-control(name='setup')
+                each val in ['Planar', '1PLANAR 2BA', 'DD', '2DD', '4BA 1DD', '3BA 1DD', '2BA 1DD', '1BA 2DD', '1BA 1DD', '2EST 6BA 1DD', '2EST 5BA 1DD', '2EST 4BA 1DD', '2EST 2BA 1DD', '8/10BA', '16BA', '8BA', '4BA', '3BA', '2BA', 'BA']
+                    option(value= val)= val
+        div(class='center').form-group
+            button(class='form-submit-button').btn.btn-primary(type='submit') Submit
 
         if errors 
             ul

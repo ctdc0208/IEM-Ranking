@@ -7,6 +7,10 @@ a {
   color: #00B7FF;
 }
 
+textarea {
+    resize: none;
+}
+
 .sidebar-nav {
     margin-top: 20px;
     padding: 0;
@@ -16,4 +20,47 @@ a {
 .display-column {
     display: flex;
     flex-direction: column;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+.form-container {
+    justify-content: center;
+    align-items: flex-start;
+    width: 550px;
+    margin: auto;
+}
+
+.form-container div {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.form-container div label{
+    width: 25%;
+    margin: 0.25rem 0;
+}
+
+.form-container div input {
+    width: 75%;
+    padding: 0.25rem 0;
+}
+
+.form-submit-button {
+    margin-top: 2rem;
+    padding: 0.5rem 1rem;
+}
+
+.comment-box {
+    line-height: 3rem;
+}
+
+select {
+    width: max-content;
+    padding: 0.25rem 1rem
 }

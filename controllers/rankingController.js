@@ -125,7 +125,11 @@ exports.iemranking_create_post = [
 			// Save author.
 			await iemranking.save();
 			// Redirect to new author record.
-			res.redirect(iemranking.url);
+			res.render("iemranking_form", {
+				title: "Add IEM Rank",
+				iemranking: iemranking,
+				errors: errors.array(),
+			});
 		}
 	}),
 ];

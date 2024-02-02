@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const IEMRankinSchema = new Schema({
-    rank: { type: Number, required: true },
-    value_rating: { type: Number, required: true },
+    rank: { type: String, required: true },
+    value_rating: { type: String, required: true },
     model: { type: String, required: true },
     price: { type: Number, required: true },
     signature: { type: String, required: true },
