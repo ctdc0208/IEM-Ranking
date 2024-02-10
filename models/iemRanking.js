@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const IEMRankinSchema = new Schema({
+const IEMRankingSchema = new Schema({
     rank: { type: String, required: true },
     value_rating: { type: String, required: true },
     model: { type: String, required: true },
@@ -14,4 +14,4 @@ const IEMRankinSchema = new Schema({
 })
 
 
-module.exports = mongoose.model("IEMRanking", IEMRankinSchema);
+module.exports = mongoose.model("IEMRanking", IEMRankingSchema);

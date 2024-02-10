@@ -3,37 +3,24 @@ const asyncHandler = require("express-async-handler")
 const { body, validationResult } = require("express-validator");
 
 exports.index = asyncHandler(async (req, res, next) => {
-	const [
-		rank,
-		value_rating,
-		model,
-		price,
-		signature,
-		comments,
-		tone_grade,
-		technical_grade,
-		setup,
-	] = await Promise.all([
+	const allRanking = await Promise.all([
+		Ranking.find().exec(),
+	]);
+
+	const numberRanking = await Promise.all([
 		Ranking.countDocuments({}).exec(),
 	]);
 
 	res.render("index", {
 		title: "IEM Ranking",
-		rank: rank,
-		value_rating: value_rating,
-		model: model,
-		price: price,
-		signature: signature,
-		comments: comments,
-		tone_grade: tone_grade,
-		technical_grade: technical_grade,
-		setup: setup,
-	})
+		numberRanking: numberRanking,
+		iemranking_list: allRanking,
+	});
 });
 
 // Display list of all IEM-Ranking.
 exports.iemranking_list = asyncHandler(async (req, res, next) => {
-	res.send("NOT IMPLEMENTED: IEMRanking list");
+
 });
 
 // Display detail page for a specific IEM-Ranking.

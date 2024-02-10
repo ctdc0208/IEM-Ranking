@@ -7,9 +7,9 @@ block content
   p The ranking has the following records:
 
   ul 
-    li #[strong IEMs:] !{rank}
+    li #[strong IEMs:] !{numberRanking}
 
-  table
+  table.table.table-striped
     thead
       tr
         th Rank
@@ -22,13 +22,15 @@ block content
         th Technical Grade
         th Setup
     tbody
-      tr
-        td !{rank}
-        td !{rank}
-        td !{rank}
-        td !{rank}
-        td !{rank}
-        td !{rank}
-        td !{rank}
-        td !{rank}
-        td !{rank}
+      each array in iemranking_list
+        each val, key in array
+          tr
+            td= val.rank
+            td= val.value_rating
+            td= val.model
+            td= val.price
+            td= val.signature
+            td= val.comments
+            td= val.tone_grade
+            td= val.technical_grade
+            td= val.setup
