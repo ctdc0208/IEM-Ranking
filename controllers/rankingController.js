@@ -25,7 +25,21 @@ exports.iemranking_list = asyncHandler(async (req, res, next) => {
 
 // Display detail page for a specific IEM-Ranking.
 exports.iemranking_detail = asyncHandler(async (req, res, next) => {
-	res.send(`NOT IMPLEMENTED: IEMRanking detail: ${req.params.id}`);
+	const [ ranking ] = await Promise.all([
+		Ranking.findById(req.params.id).exec(),
+	]);
+
+	if (ranking === null) {
+		// No results.
+		const err = new Error("IEM not found");
+		err.status = 404;
+		return next(err);
+	}
+
+	res.render("iem_detail", {
+		title: "IEM Detail",
+		ranking: ranking,
+	});
 });
 
 // Display IEM-Ranking. create form on GET.
@@ -119,12 +133,34 @@ exports.iemranking_create_post = [
 
 // Display IEM-Ranking. delete form on GET.
 exports.iemranking_delete_get = asyncHandler(async (req, res, next) => {
-	res.send("NOT IMPLEMENTED: IEMRanking delete GET");
+	const [ranking] = await Promise.all([
+		Ranking.findById(req.params.id).exec(),
+	]);
+
+	if (ranking === null) {
+		// No results.
+		res.redirect("/")
+	}
+
+	res.render("iem_delete", {
+		title: "Delete IEM",
+		ranking: ranking,
+	});
 });
 
 // Handle IEM-Ranking. delete on POST.
 exports.iemranking_delete_post = asyncHandler(async (req, res, next) => {
-	res.send("NOT IMPLEMENTED: IEMRanking delete POST");
+	const [ranking] = await Promise.all([
+		Ranking.findById(req.params.id).exec(),
+	]);
+
+	if (ranking === null) {
+		// No results.
+		res.redirect("/")
+	}
+
+	await Ranking.findByIdAndDelete(req.body.rankingid);
+	res.redirect("/")
 });
 
 // Display IEM-Ranking. update form on GET.

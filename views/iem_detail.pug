@@ -1,0 +1,35 @@
+extends layout
+
+block content
+
+    h1 IEM: #{ranking.model}
+    
+    div(style='margin-left:20px;margin-top:20px')
+
+       table.table.table-striped
+         thead
+          tr
+            th Rank
+            th Value Rating
+            th Model
+            th Price
+            th Signature
+            th Comments
+            th Tone Grade
+            th Technical Grade
+            th Setup
+         tbody
+            tr
+                td #{ranking.rank}
+                td #{ranking.value_rating}
+                td #{ranking.model}
+                td #{ranking.price}
+                td #{ranking.signature}
+                td #{ranking.comments}
+                td #{ranking.tone_grade}
+                td #{ranking.technical_grade}
+                td #{ranking.setup}
+
+    hr
+    p
+        a(href=ranking.url+'/delete') Delete IEM

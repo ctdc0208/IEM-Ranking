@@ -27,7 +27,8 @@ block content
           tr
             td= val.rank
             td= val.value_rating
-            td= val.model
+            td
+              a(href=val.url) #{val.model}
             td= val.price
             td= val.signature
             td= val.comments

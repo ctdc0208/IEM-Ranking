@@ -13,5 +13,8 @@ const IEMRankingSchema = new Schema({
     setup: { type: String, required: true },
 })
 
+IEMRankingSchema.virtual("url").get(function () {
+    return `/iem/${this.model}/${this._id}`;
+});
 
 module.exports = mongoose.model("IEMRanking", IEMRankingSchema);

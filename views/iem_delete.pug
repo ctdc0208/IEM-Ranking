@@ -1,0 +1,15 @@
+extends layout
+
+block content
+
+    h1 IEM: #{ranking.model}
+    
+    div(style='margin-left:20px;margin-top:20px')
+
+    p Do you really want to delete this IEM?
+
+    form(method='POST')
+        div.form-group
+        input#rankingid.form-control(type='hidden', name='rankingid', value=ranking._id )
+
+        button.btn.btn-primary(type='submit') Delete

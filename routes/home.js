@@ -11,15 +11,15 @@ router.get("/create", iem_ranking_controller.iemranking_create_get);
 
 router.post("/create", iem_ranking_controller.iemranking_create_post);
 
-router.get("/author/:id/delete", iem_ranking_controller.iemranking_delete_get);
+router.get("/iem/:model/:id/delete", iem_ranking_controller.iemranking_delete_get);
 
-router.post("/author/:id/delete", iem_ranking_controller.iemranking_delete_post);
+router.post("/iem/:model/:id/delete", iem_ranking_controller.iemranking_delete_post);
 
 router.get("/author/:id/update", iem_ranking_controller.iemranking_update_get);
 
 router.post("/author/:id/update", iem_ranking_controller.iemranking_update_post);
 
-router.get("/author/:id", iem_ranking_controller.iemranking_detail);
+router.get("/iem/:model/:id", iem_ranking_controller.iemranking_detail);
 
 router.get("/authors", iem_ranking_controller.iemranking_list);
 
