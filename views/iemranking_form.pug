@@ -8,7 +8,7 @@ block content
         div.from-group
             label(for='model') Model: 
             input#model.form-control(type='text',
-            placeholder='IEM Model' name='model' required value=(undefined===iemranking ? '' : iemranking.model) )
+            placeholder='IEM Model' name='model' required value=(undefined===ranking ? '' : ranking.model) )
         div.from-group
             label(for='rank') Rank: 
             select#rank.form-control(name='rank')
@@ -22,7 +22,7 @@ block content
         div.from-group
             label(for='price') Price:
             input#model.form-control(type='text',
-            placeholder='Price in USD' name='price' required value=(undefined===iemranking ? '' : iemranking.price) )
+            placeholder='Price in USD' name='price' required value=(undefined===ranking ? '' : ranking.price) )
         div.from-group
             label(for='signature') Sound Signature: 
             select#signature.form-control(name='signature')
@@ -31,7 +31,7 @@ block content
         div.from-group
             label(for='comments') Comments: 
             textarea#model.form-control(type='text', 
-            placeholder='Comments' name='comments' rows='5' cols='53.5' required value=(undefined===iemranking ? '' : iemranking.comments) )
+            placeholder='Comments' name='comments' rows='5' cols='53.5' required value=(undefined===ranking ? '' : ranking.comments) )
         div.from-group
             label(for='tone_grade') Tone Grade: 
             select#tone_grade.form-control(name='tone_grade')
