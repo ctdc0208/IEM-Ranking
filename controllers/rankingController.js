@@ -183,13 +183,7 @@ exports.iemranking_update_get = asyncHandler(async (req, res, next) => {
 });
 
 // Handle IEM-Ranking. update on POST.
-exports.iemranking_update_post = asyncHandler(async (req, res, next) => {
-	if (!Array.isArray(req.body.ranking)) {
-		req.body.ranking =
-			typeof req.body.ranking === "undefined" ? [] : [req.body.ranking];
-	}
-	next();
-},
+exports.iemranking_update_post = [
 	body("model")
 		.trim()
 		.isLength({ min: 1 })
@@ -268,7 +262,7 @@ exports.iemranking_update_post = asyncHandler(async (req, res, next) => {
 			// Save author.
 			const updatedIEM = await Ranking.findByIdAndUpdate(req.params.id, ranking, {})
 			// Redirect to IEM detail.
-			res.redirect("/");
+			res.redirect(updatedIEM.url);
 		}
 	}),
-);
+];
